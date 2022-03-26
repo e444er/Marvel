@@ -7,9 +7,13 @@ import javax.inject.Inject
 
 class MarvelRepositoryImpl @Inject constructor(
     private val api: MarvelApi
-) :MarvelRepository {
+) : MarvelRepository {
 
     override suspend fun getALlCharacter(offset: Int): CharactersDTO {
         return api.getALlCharacters(offset = offset.toString())
+    }
+
+    override suspend fun getALlSearchCharacter(search: String): CharactersDTO {
+        return api.getALlSearchCharacters(search = search)
     }
 }

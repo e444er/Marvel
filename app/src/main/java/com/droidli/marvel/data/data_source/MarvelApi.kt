@@ -14,4 +14,12 @@ interface MarvelApi {
         @Query("hash") hash: String = Constants.hash(),
         @Query("offset") offset: String
     ): CharactersDTO
+
+    @GET("/v1/public/characters")
+    suspend fun getALlSearchCharacters(
+        @Query("apikey") apikey: String = Constants.API_KEY,
+        @Query("ts") ts: String = Constants.timeStamp,
+        @Query("hash") hash: String = Constants.hash(),
+        @Query("nameStartWith") search: String
+    ): CharactersDTO
 }
