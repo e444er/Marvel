@@ -8,7 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SearchView
 import androidx.core.view.isVisible
 import androidx.lifecycle.coroutineScope
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.droidli.marvel.databinding.ActivityMainBinding
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), SearchView.OnQue
     private val binding by viewBinding(ActivityMainBinding::bind)
     private val viewModel: CharacterViewModel by viewModels()
     private val mAdapter by lazy { CharacterListAdapter() }
-    private lateinit var layoutManager: GridLayoutManager
+    private lateinit var layoutManager: LinearLayoutManager
     private lateinit var searchTerm: String
 
     var flag = 3
@@ -50,7 +50,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main), SearchView.OnQue
 
         binding.characterRecyclerView.apply {
             adapter = mAdapter
-            layoutManager = GridLayoutManager(this@MainActivity, 2)
+            layoutManager = LinearLayoutManager(this@MainActivity)
             setHasFixedSize(true)
         }
     }

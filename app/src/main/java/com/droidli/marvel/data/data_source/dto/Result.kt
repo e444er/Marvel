@@ -38,7 +38,6 @@ data class Result(
             comics = comics.items.map {
                 it.name
             }
-
         )
     }
 }
